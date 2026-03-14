@@ -1,110 +1,153 @@
-# ROD_Project SETUP
+# Dual Robot Industrial Simulation
+This project implements a dual-robot industrial simulation using ROS.
+Two custom robot models with individual kinematics interact in a shared
+industrial task within a simulated environment.
 
-Dieses Repository enthält die Beschreibungspakete für das ROD-Projekt. Es ist für die Verwendung in einer ROS-Umgebung (z. B. mit ROS Noetic) ausgelegt.
-Hinweis: Wenn etwas im README nicht angeführt wird, bitte hinzufügen @Sameh!
+The project includes robot modeling, simulation, and a simple
+Human-Machine Interface (HMI) for controlling robot motion.
+
+Features
+- Custom robot kinematics and URDF models
+- Simulation of two interacting robots
+- Industrial task scenario
+- Inverse kinematics for TCP motion
+- Human-Machine Interface for robot control
+- Launch scripts to start the simulation
+
+## ROD Project Setup
+
+This repository contains the description packages for the **ROD project**.
+It is designed to run in a **ROS environment (e.g. ROS Noetic)**.
+
+Note: If something is missing in this README, please add it. (@Sameh)
 
 ---
 
-## 🔑 SSH-Zugang einrichten (empfohlen)
+## 🔑 Setup SSH Access (recommended)
 
-Falls du das Repository via SSH klonen möchtest (anstatt per HTTPS), richte zunächst einen SSH-Key ein:
+If you want to clone the repository via **SSH instead of HTTPS**, first create an SSH key.
 
-### 1. SSH-Key generieren (falls nicht vorhanden)
+### 1. Generate SSH key (if you don't already have one)
 
 ```bash
-ssh-keygen -t ed25519 -C "deine.email@example.com"
+ssh-keygen -t ed25519 -C "your.email@example.com"
 ```
 
-### 2. Public Key anzeigen und kopieren
+### 2. Show and copy your public key
 
 ```bash
 cat ~/.ssh/id_ed25519.pub
 ```
-### 3. SSH-Key zu GitHub hinzufügen
 
-  Öffne 
-  ```bash 
-  https://github.com/settings/keys
-  ```
+### 3. Add the SSH key to GitHub
 
-  Klicke auf "New SSH Key"
+Open:
 
-  Füge den kopierten Key in das Textfeld ein und gib ihm einen Namen
+```
+https://github.com/settings/keys
+```
 
-4. SSH-Verbindung testen
+Then:
+
+- Click **New SSH Key**
+- Paste the copied key
+- Give the key a name
+
+### 4. Test SSH connection
 
 ```bash
 ssh -T git@github.com
 ```
-## 📥 Repository klonen
+
+---
+
+## 📥 Clone the repository
 
 ```bash
 git clone git@github.com:karim0101-droid/ROD_Project.git
 ```
-  Hinweis: Stelle sicher, dass du SSH-Zugriff hast – siehe oben.
 
+Note: Make sure SSH access is configured.
 
-## 🌿 Im jeweiligen Branch arbeiten
+---
 
-Wechsle in deinen Branch und ändere dabei "branch-name" zu deinem jeweiligen Branch:
+## 🌿 Work in your branch
+
+Switch to your branch:
+
 ```bash
 git checkout branch-name
 ```
-Wenn du noch keinen Branch erstellt hast, erstelle einen und ändere "new-branch-name" zu deinem jeweiligen Branch:
+
+If you don't have a branch yet, create one:
+
 ```bash
 git checkout -b new-branch-name
 ```
 
-## 5. Dependecies herunterladen
+---
 
-1. Installiere fehlende ROS-Controller
+## 📦 Install dependencies
 
-Stelle sicher, dass du folgendes Paket installiert hast:
+### 1. Install missing ROS controllers
+
 ```bash
 sudo apt install ros-noetic-ros-controllers
 ```
 
-Dieses Paket enthält JointTrajectoryController und weitere wichtige Controller-Plugins.
+This package includes:
 
-2. Kontrolliere die Controller-Plugins im System
+- JointTrajectoryController
+- additional controller plugins
 
-Du kannst prüfen, welche Controller verfügbar sind mit:
+### 2. Check available controller plugins
+
 ```bash
 rosservice call /controller_manager/list_controller_types
 ```
 
-Stelle außerdem sicher, dass du alles rund um MoveIt heruntergeladen hast:
+### 3. Install MoveIt
+
 ```bash
 sudo apt install ros-noetic-moveit*
 ```
 
-## 6. Workspace einrichten und builden
+---
 
+## ⚙️ Setup and build the workspace
 
-Wechsle in den Workspace und führe den Build aus:
 ```bash
 cd ~/GRUPPE07_Arafa_El-Harery
 catkin init
 catkin build
 ```
 
+---
 
-### 📡 Workspace automatisch sourcen
+## 📡 Automatically source the workspace
 
-Öffne ".bashrc" mit:
+Open `.bashrc`:
+
 ```bash
 nano ~/.bashrc
 ```
 
-Damit dein Workspace bei jedem Terminalstart verfügbar ist, füge Folgendes zu deiner ~/.bashrc hinzu:
+Add the following line:
+
 ```bash
 source ~/GRUPPE07_Arafa_El-Harery/devel/setup.bash
 ```
-,falls dies nicht funktioniert, bitte den gesamten Pfad angeben und zum Speichern STRG+X -> J -> Enter drücken!
 
-Danach einmal neu laden oder Terminal neustarten:
+If this does not work, specify the full path.
+
+Save and exit:
+
+```
+CTRL + X → Y → Enter
+```
+
+Reload the configuration:
+
 ```bash
 source ~/.bashrc
 ```
-
----
