@@ -1,10 +1,24 @@
 # Dual Robot Industrial Simulation
+
 This project implements a dual-robot industrial simulation using ROS.
 Two custom robot models with individual kinematics interact in a shared
 industrial task within a simulated environment.
 
 The project includes robot modeling, simulation, and a simple
 Human-Machine Interface (HMI) for controlling robot motion.
+
+## Simulation Environment
+
+![Robot Station](src/station.png)
+
+## Coordinate Frames
+
+![Frames](src/frames.png)
+
+## Human Machine Interface
+
+![HMI](src/hmi.png)
+
 
 Features
 - Custom robot kinematics and URDF models
