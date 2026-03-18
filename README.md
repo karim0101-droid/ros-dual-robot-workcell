@@ -9,7 +9,7 @@ Human-Machine Interface (HMI) for controlling robot motion.
 
 ## Rendered 3D-models
 
-![Robot Station](src/robot_station.png)
+![Robot Station](src/robot_station.png){ width=50% }
 
 ## Coordinate Frames
 
